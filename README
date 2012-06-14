@@ -1,0 +1,48 @@
+*** Los angeles perl mongers website ***
+
+About:
+Using pm-website from App::PM::Website to build and install the
+la.pm.org website.
+
+Configuration:
+'pm-website build' requires a config file (default =
+./config/pm-website.yaml ) and a template file ( default =
+./template/index.tt ). and outputs TT rendered data
+( default = ./website/index.html )
+
+'pm-website install' requires a config file (default =
+./config/pm-website.yaml) and a file to push (default =
+./website/index.html ).  Credentials for DAV are read from
+$HOME/.netrc if it exists and is not readable by others.
+
+config/pm-website.yaml example:
+
+config:
+    url         : https://groups.pm.org/groups/losangeles/
+    machine     : groups.pm.org
+    username    : spazm
+    certificate : cacert.pem
+location:
+    ...hash of locations...
+presenter:
+    ...hash of presenters...
+meetings:
+    ... array of events, will be sorted by event_date ...
+    ... array locations refer to location entries ...
+    ... meetings have presentations which reference presenters ...
+
+The template code will be given several variables:
+    m         => the next meeting
+    l         => location of the next meeting
+    meetings  => previous meetings (does not include m)
+    presenter => hash of all presenters
+    location  => hash of all locations
+
+$HOME/.netrc configuration for perl monger groups:
+  machine groups.pm.org
+  login $YOUR_LOGIN
+  password $YOUR_PASSWORD
+
+cacert.pm is the develooper.com public certificate for making SSL
+connections during DAV.  This is listed in the config::certificate
+section of pm-website.yaml.
