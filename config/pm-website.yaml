@@ -1,9 +1,14 @@
 ---
 config:
-    url         : https://groups.pm.org/groups/losangeles/
-    machine     : groups.pm.org
-    username    : spazm
-    certificate : cacert.pem
+    website :
+        url            : https://groups.pm.org/groups/losangeles/
+        machine        : groups.pm.org
+        username       : spazm
+        certificate    : cacert.pem
+        template_dir   : "template"
+        build_dir      : "./website"
+    location :
+        default : demand
 location:
   ticketmaster:
     address  : TicketMaster - 7060 Hollywood Blvd, Los Angeles 90028
@@ -159,6 +164,13 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2012/07/25'
+    location:   demand
+    show_news: 1
+    open_call:  1
+    presentations:
+      - presenter : you
+        title     : TBD
   - event_date: "2012/06/20"
     location:   demand
     open_call:  1
@@ -166,14 +178,13 @@ meetings:
       - presenter : spazm
         title     : YAPCna notes
         abstract  : Notes and discussion from YAPCna, June 13-15 in Madison, WI.
-      - presenter : you
-        title     : TBD
-        abstract  : Informal discussion of tools, comings and goings, etc.
       - presenter : btilly
-        title     : Template::ExpandHash (<i>semi-confirmed</i>)
+        title     : Template::ExpandHash
         abstract  : A new perl module to expand a hash as a template.
         links     :
-          - name  : Template::ExpandHash
+          - name  : slides
+            url   : http://elem.com/~btilly/template-hashexpand/
+          - name  : cpan
             url   : https://metacpan.org/module/Template::ExpandHash
           - name  : git
             url   : https://github.com/btilly/Template-ExpandHash
