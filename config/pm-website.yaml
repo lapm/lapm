@@ -54,6 +54,9 @@ location:
     address: Scale10x - Hilton Los Angeles Airport - 5711 West Century Boulevard, 90045
     mapurl: http://maps.google.com/maps?q=5711+West+Century+Boulevard,+Los+Angeles,+California,+USA+90045&hnear=5711+W+Century+Blvd,+Los+Angeles,+California+90045&gl=us&t=m&z=16&vpsrc=0
     url:    https://www.socallinuxexpo.org/scale10x/events/bird-feather-sessions
+  steingarten:
+    address: 10543 W. Pico Blvd, Los Angeles, CA 90064
+    url: http://www.steingartenla.com/about/location/
 
 presenter:
   gabec:
@@ -76,7 +79,7 @@ presenter:
     cpan:     barefoot
     facebook: barefootcoder
     github:   barefootcoder
-    url: 
+    url:
   bluefeet:
     cpan: bluefeet
     github: bluefeet
@@ -158,6 +161,8 @@ presenter:
   theron:
     name: Theron Stanford
     url: http://www.linkedin.com/pub/theron-stanford/3/b53/5a9
+  jkeenan:
+    name: James E Keenan
   you:
     description: are an awesome perler!
     name: You
@@ -166,11 +171,21 @@ presenter:
 meetings:
   - event_date: '2012/07/25'
     location:   demand
+    show_news: 0
+    open_call:  1
+    presentations:
+      - presenter : spazm
+        title     : OSCON 2012 recap
+        abstract  : 5 days of awesome compressed and distilled.
+      - presenter : you
+        title     : TBD
+  - event_date: '2012/07/19'
+    location:   steingartenla
     show_news: 1
     open_call:  1
     presentations:
-      - presenter : you
-        title     : TBD
+        - presenter : jkeenan
+          title     : EMERGENCY SOCIAL
   - event_date: "2012/06/20"
     location:   demand
     open_call:  1
