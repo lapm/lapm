@@ -169,6 +169,17 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2012/08/29'
+    location: demand
+    show_news: 0
+    open_call: 1
+    presentations:
+      - presenter: davido
+        title: deploying to DotCloud
+        abstract: Real apps on dotcloud using db instances and etc.  Bonus: Free Swag!
+      - presenter: you
+        title: TBD
+        abstract: something awesome.
   - event_date: '2012/07/25'
     location:   demand
     show_news: 0
@@ -177,8 +188,9 @@ meetings:
       - presenter : spazm
         title     : OSCON 2012 recap
         abstract  : 5 days of awesome compressed and distilled.
-      - presenter : you
-        title     : TBD
+        links:
+          - name: Blog Post
+            url: http://www.lowlevelmanager.com/2012/07/oscon-2012-resources-presentations-and.html
   - event_date: '2012/07/19'
     location:   steingartenla
     show_news: 1
