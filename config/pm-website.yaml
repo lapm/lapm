@@ -169,6 +169,20 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2012/09/26'
+    location: demand
+    show_news: 0
+    open_call: 1
+    presentations:
+      - presenter: spazm
+        title: github services
+        abstract: leveraging github services for your (open source) project
+      - presenter: TBD
+        title: Notes from a Hackathon
+        abstract: design lessons learned from a recent hackathon.
+      - presenter: you
+        title: TBD
+        abstract: What have you been up to lately?
   - event_date: '2012/08/29'
     location: demand
     show_news: 0
@@ -177,9 +191,15 @@ meetings:
       - presenter: davido
         title: deploying to DotCloud
         abstract: Real apps on dotcloud using db instances and etc.  Bonus: Free Swag!
-      - presenter: you
-        title: TBD
-        abstract: something awesome.
+        links:
+          - name: slides
+            url: http://www.slideshare.net/daoswald/deploying-perl-apps-on-dotcloud
+      - presenter: spazm
+        title: App::PM::Website
+        abstract: random mumbling about his new project.  LIVE DEMO!
+        links:
+          - name: cpan
+            url: http://metacpan.org/module/App::PM::Website
   - event_date: '2012/07/25'
     location:   demand
     show_news: 0
