@@ -169,6 +169,17 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2012/10/24'
+    location: demand
+    show_news: 1
+    open_call: 1
+    presentations:
+      - presenter: spazm
+        title: TBD
+        abstract:
+      - presenter: you
+        title: TBD
+        abstract: What have you been up to lately?
   - event_date: '2012/09/26'
     location: demand
     show_news: 0
@@ -180,9 +191,6 @@ meetings:
       - presenter: TBD
         title: Notes from a Hackathon
         abstract: design lessons learned from a recent hackathon.
-      - presenter: you
-        title: TBD
-        abstract: What have you been up to lately?
   - event_date: '2012/08/29'
     location: demand
     show_news: 0
