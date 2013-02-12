@@ -148,7 +148,7 @@ You are better off entering the parking structure through the Olympic entrance, 
 <br> Los Angeles, CA  90028
 <p>
 <h4>Notes:</h4>
-Parking and food will be provided by Ticketmaster, 
+Parking and food will be provided by Ticketmaster,
 details about the parking are forthcoming.
 
 [% END %]
@@ -231,13 +231,13 @@ containing only the word 'subscribe' to<br>
         <dt>[% m.ds1 %]
         [%- FOREACH talk IN m.presentations %]
             [%- speaker = presenter.${talk.presenter} %]
-[% IF 0 %]
+[% IF 0 -%]
     <li><big>[% m.ds1 %]: [% presenter.${talk.presenter} %] [% talk.title %].</big>(Hosted at 
-[% END %]
+[% END -%]
             [%- email = speaker.email or CPAN(speaker.cpan) -%]
             [%- IF email -%]
                 <img src = "[% Gravatar( email => email) | html %]" >
-            [% END -%]
+            [%- END -%]
             <dd><big>[% speaker.name %]: <em>[% talk.title %]</em></big>
             [%- IF talk.links -%]
                 (
@@ -246,7 +246,7 @@ containing only the word 'subscribe' to<br>
                 [%- END -%]
                 )
             [%- END -%]
-        [% END %]
+        [%- END -%]
         [% IF m.location %]
             <dd> Hosted at [% m.location %]</dd>
         [% END %]
@@ -264,19 +264,19 @@ containing only the word 'subscribe' to<br>
         [% LAST IF !String.Compare.compare( m.dt.ymd ) %]
         [%- FOREACH talk IN m.presentations %]
             [%- speaker = presenter.${talk.presenter} %]
-    <li><big>[% m.ds1 %]: 
+    <li><big>[% m.ds1 %]:
     [% IF speaker.url -%]
       <a href=[% speaker.url %]>[% speaker.name %]</a>
     [% ELSE -%]
       [% speaker.name %]
     [% END -%] : [% talk.title %].</big>
             [%- IF talk.links -%]
-                =>  
+                =>
                 [%- FOREACH l IN talk.links %]
-                    <a target='_NEW' href=[% l.url %]>[% l.name %]</a> 
+                    <a target='_NEW' href=[% l.url %]>[% l.name %]</a>
                 [%- END -%]
             [%- END -%]
-        [% END %]
+        [% END -%]
     [%- IF 0 and speaker.cpan -%]
         [%- email = CPAN(speaker.cpan) -%]
         <a href="http://metacpan.org/author/[% speaker.cpan %]"><img src = "[% Gravatar( email => email) | html %]" ></a>
