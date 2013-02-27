@@ -170,6 +170,13 @@ presenter:
     github: mateoconfeugo
     description: with excitement and flashes of magic.
     url:
+  rspier:
+    name: Robert Spier
+    description:  is a mild mannered Site Reliability Engineer at Google working with 10^X machines.  At night, he remains mild mannered, and helps run the perl.org infrastructure with 10^1 machines.  He does not wear a cape.
+    github:
+    cpan: rspier
+    email: rspier@pobox.com
+    url: http://www.rbrt.com
   you:
     description: are an awesome perler!
     name: You
@@ -186,6 +193,12 @@ meetings:
           links:
             - name: Bus-Bootcamp github
               url: https://github.com/mateoconfeugo/bus-bootcamp
+        - presenter: rspier
+          title: Behind the scenes at perl.org
+          abstract: A quick tour behind the curtain at perl.org.  Perl.org is more than just a website and provider of mailing lists; It hosts numerous services for the perl community including PAUSE, rt.cpan.org, version control services, Perl Monger websites and more.  Learn a bit about how the service is run, what technologies are used and current and future plans.  The top secret location of the datacenter will be revealed, including where we bury all the spam emails.
+          links:
+            - name: perl.org
+              url: http://perl.org
         - presenter: spazm
           title: "ldapdancer"
           abstract: "LDAP + Dancer: authenticating against active directory made easy aka Sneaking perl into the office"
