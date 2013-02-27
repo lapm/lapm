@@ -53,8 +53,8 @@ Area</p>
             [%- END %]
             [%- IF talk.links -%]
                 <br>
-                [%- FOREACH l IN talk.links %]
-                    <a target='_NEW' href=[% l.url %]>[% l.name %]</a>
+                [%- FOREACH link IN talk.links %]
+                    <a target='_NEW' href=[% link.url %]>[% link.name %]</a>
                 [%- END -%]
             [%- END -%]
             </li>
@@ -241,8 +241,8 @@ containing only the word 'subscribe' to<br>
             <dd><big>[% speaker.name %]: <em>[% talk.title %]</em></big>
             [%- IF talk.links -%]
                 (
-                [%- FOREACH l IN talk.links %]
-                    <a href=[% l.0 %]>[% l.1 %]</a> |
+                [%- FOREACH link IN talk.links %]
+                    <a href=[% link.0 %]>[% link.1 %]</a> |
                 [%- END -%]
                 )
             [%- END -%]
@@ -272,8 +272,8 @@ containing only the word 'subscribe' to<br>
     [% END -%] : [% talk.title %].</big>
             [%- IF talk.links -%]
                 =>
-                [%- FOREACH l IN talk.links %]
-                    <a target='_NEW' href=[% l.url %]>[% l.name %]</a>
+                [%- FOREACH link IN talk.links %]
+                    <a target='_NEW' href=[% link.url %]>[% link.name %]</a>
                 [%- END -%]
             [%- END -%]
         [% END -%]
