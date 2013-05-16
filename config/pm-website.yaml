@@ -10,7 +10,7 @@ config:
     facebook:
         group_id: 119158178096277
     location :
-        default : demand
+        default : demand1333
 location:
   ticketmaster:
     address  : TicketMaster - 7060 Hollywood Blvd, Los Angeles 90028
@@ -27,6 +27,11 @@ location:
     mapurl  : ""
     name    : Media Temple
     url     : http://mediatemple.com
+  demand1333:
+    address : Demand Media, 1333 2nd, Santa Monica, CA
+    mapurl  :
+    name    : Demand Media
+    url     : http://demandmedia.com
   demand:
     address : Demand Media, 1299 Ocean, Santa Monica, CA
     mapurl  :
@@ -182,19 +187,42 @@ presenter:
     name: Maxwell Cabral
     description: is a polyglot software engineer at ZipRecruiter!
     github: maxcabral
+  mjd:
+    name: Mark Jason Dominus
+    cpan: mjd
+    github: mjdominus
+    description: is the author of <a href="http://hop.perl.plover.com">Higher Order Perl</a>, a perl <a href="http://perl.plover.com/yak/tricks/">wizard</a>, and a frequent contributer to <a href="http://math.stackexchange.com/users/25554/mjd">Math Stackexchange</a>. We are lucky to have him as a special guest while he is visiting LA.
+    url: http://blog.plover.com
   you:
     description: are an awesome perler!
     name: You
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2013/05/29'
+    location: demand1333
+    show_news: 1
+    presentations:
+        - presenter: you
+          title: Lightning Talks
+          abstract: Short tech talks, provided by you!
+  - event_date: '2013/04/03'
+    location: demand
+    show_news: 1
+    presentations:
+        - presenter: mjd
+          title: Blah blah blah
+          abstract: "Don't overhype this.  You won't learn anything, I probably won't even stand up."
   - event_date: '2013/03/20'
     location: demand
     show_news: 1
     presentations:
         - presenter: buddy
-          title: Method::Signatures (Part 2)
-          abstract: TBD
+          title: Method::Signatures : A Tutorial
+          abstract: "When last we spoke about Method::Signatures, I was telling you how awesome it was when used with MooseX::Delare.  Of course, there's no reason you can't use it outside MXD, where's it's still quite awesome.  In this talk, I'll be going over the basics of how to use MS, concentrating on practical applications of the signature syntax.  That is, mostly \"how\" and not so much \"why.\""
+          links:
+            - name: Method::Signatures
+              url: http://metacpan.org/module/Method::Signatures
         - presenter: max
           title: Hackathon Demo: PerlTube - a FOSS video site.
           abstract:  "The selling point is you don't have to pay a porn marketer $50 for a half decent video site"
