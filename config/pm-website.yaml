@@ -199,6 +199,20 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2013/07/17'
+    location: oversee
+    show_news: 1
+    presentations:
+        - presenter: thaljef
+          title: Private Pinto Repositories
+          abstract: "If you use Perl, then you have probably wrestled with CPAN.  Shifting dependencies, incompatible interfaces and test failures in CPAN modules can suddenly break your application, leaving your team to chase bugs they didn't create. But managing CPAN modules doesn't have to be painful.  A private Pinto repository gives you a stable platform for making consisten builds and managing upgrades for all your Perl modules.  Start building your applications with the right modules, every time.  I'll show you how."
+          links:
+            - name: cpan
+              url: http://metacpan.org/module/Pinto
+            - name: github
+              url: http://github.com/thaljef/Pinto
+            - name: blog
+              url: http://blog.stratopan.com
   - event_date: '2013/05/29'
     location: demand1333
     show_news: 1
