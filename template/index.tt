@@ -106,7 +106,7 @@ See you at 7 on [% m.event_date_pretty %]!
 <p>
 [% IF('Demand Media' == l.name ) %]
 <hr>
-<h2>Venue Information</h2>
+<h2>Venue Information <b><color=red>NEW</color></b></h2>
 Demand Media
 <br>1333 2nd St, First floor
 <br>on 2nd between Santa Monica and Arizona
@@ -189,20 +189,14 @@ The door from the parking structure to the second floor may be locked, we'll hav
 order to access the building.
 
     <li> Parking:
-    <ol>
-        <li>Please park in the A-Level garage and Oversee.net will provide a parking validation for this event for the <i>first 35 guests</i>.
-        <li>The A-Level garage is located at 515 S. Flower Street
-        <li>There are two entrances to the garage on Flower & 5th Street
-        <li>Once you get to the entrance of the garage, please take a ticket and
-           proceed to the valet service area
-        <li>The garage is only valet, so you will leave your keys with the
-           attendant, who in turn will give you a claim check
-        <li>Go up the elevator into the Paul Hasting building and check in with Security
-        <li>At the time of exit, you will come down to the A-level and present your claim check to the valet attendant
-        <li> You will be asked if you will be paying for your ticket or if you have a validation.
-        <li> The validation or coupon is offered by the tenant you came to visit.  If the coupon or validation wasn't offered by the tenant, you can make your payment using your credit card or cash.  We accept all major credit cards except for Discover.  Evening rate without validation is $15.
-        <li> If you have any further questions about the garage, please call the Parking office at 213-628-0581
-    </ol>
+<p>
+The best options for parking near Oversee.net is the LA Central Library parking garage at <b>524 S Flower Street lot</b> across the street from the building. The rate after 4pm is $8 without validation.
+<p>
+  Also, here is a map of the meters and free spots after 6/7/8pm (please check all signs) - http://g.co/maps/873az
+<p>
+
+*Note: Do Not Park in the City National Parking parking structure downstairs at 500 S. Flower St. There is no validation provided there and per hour is more expensive than parking at the Library.
+
     <li>Directions:
     <ol>
         <li><b>From LAX</b>: Take the I-105 freeway east to the I-110 North. Go past the
