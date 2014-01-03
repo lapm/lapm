@@ -32,8 +32,13 @@ location:
     mapurl  :
     name    : Demand Media
     url     : http://demandmedia.com
-  demand:
+  demand1299:
     address : Demand Media, 1299 Ocean, Santa Monica, CA
+    mapurl  :
+    name    : Demand Media
+    url     : http://demandmedia.com
+  demand:
+    address : Demand Media, 1655 26th St, Santa Monica, CA
     mapurl  :
     name    : Demand Media
     url     : http://demandmedia.com
@@ -199,6 +204,18 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2013/09/05'
+    location: demand
+    show_news: 0
+    presentations:
+        - presenter: merlyn
+          title: "Half my life with Perl"
+          abstract: "Twenty-five years of Perl. And I'm a tiny bit over 50. Having been there, at the beginning with Perl, I will recount the early days through the modern era (or as much as I can cover in 40 minutes). I'll deliver first-hand experience of the creation of the Camel Book, the Llama book, and the way I invaded comp.unix.questions with Perl 2 answers so often that people would post \"no Perl please\". Oh, and my version of the story of the Schwartzian Transform. I'll also give my views about the current and future Perl, and what Perl 6 means to the community and to me as a professional."
+          links:
+            - name: oscon
+              url: http://www.oscon.com/oscon2013/public/schedule/detail/29049
+            - name: slides
+              url: http://cdn.oreillystatic.com/en/assets/1/event/95/Half%20my%20life%20with%20Perl%20Presentation.pdf
   - event_date: '2013/07/17'
     location: oversee
     show_news: 1
