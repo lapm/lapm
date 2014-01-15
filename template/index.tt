@@ -115,14 +115,16 @@ Demand Media
 <br>Santa Monica, CA
 
 <h3>Parking: </h3>
-  Parking on Pennsylvania is free after 6pm.
-  We should have parking available in our building lot as well.
+<ol>
+<li>Parking is available in our lot, enter from Pennsylvania.
+<li> Parking on Pennsylvania is free after 6pm.
+</ol>
 
 <h3>1655 26th St</h3>
 Demand has migrated away from our old locations on Ocean and 1333 Second st.  We're now just west of the Water Gardens.
 
 <h3>Food & BEvERages:</h3>
-  The pizza has been ordered, the soda fridge is scheduled to be freshly restocked and the beers should be on ice.
+  The pizza has been ordered, the soda fridge is scheduled to be freshly restocked and the beers should be on ice.  Please RSVP so I know what (if anything) to purchase.
 <hr>
 [% END %]
 [% IF('The Rubicon Project' == l.name ) %]

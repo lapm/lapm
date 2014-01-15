@@ -198,12 +198,31 @@ presenter:
     github: mjdominus
     description: is the author of <a href="http://hop.perl.plover.com">Higher Order Perl</a>, a perl <a href="http://perl.plover.com/yak/tricks/">wizard</a>, and a frequent contributer to <a href="http://math.stackexchange.com/users/25554/mjd">Math Stackexchange</a>. We are lucky to have him as a special guest while he is visiting LA.
     url: http://blog.plover.com
+  chuck:
+    name: Chuck Hardin, Nami Media
+    cpan: CHARDIN
+    github: chardin
+    url: http://www.naming-schemes.org/
+    description: 'Button-cute, rapier-keen, Texan-brown and pauper-poor is Chuck Hardin, whose awkward, burly figure is better known to the twilit half-world of five continents than to the employment agencies of Los Angeles, California. That he possesses the power to become invisible to finance companies; that his laboratory is tooled up to manufacture destructive robots he refers to as "Heavy Metal Apes" on a fantastic scale; and that he owns one of the rare mouths in which butter has never melted are legends treasured by every schoolboy.  <br> Shackled to the mighty wheel of Nami Media, Chuck spends his few hours outside of work raising turkeys which he occasionally displays on Thousand Oaks Boulevard, and stirs little from his alembics and retorts. Those who know hint that the light burning late in his laboratory may result in a breathtaking electric bill. Queried, he shrugs with the fatalism of your true Oriental. "Mektoub," he observes curtly. "It is written."'
   you:
     description: are an awesome perler!
     name: You
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2014/01/22'
+    location: demand
+    show_news: 0
+    presentations:
+        - presenter: merlyn
+          title: "Dynamic Returns: a comparison of Static vs Dynamic Typing"
+          abstract: "describes the difference between Strong vs Weak typing, Static vs Dynamic typing, and Implicit vs Explicit typing, and ultimately justify why Perl's dynamic typing (for user-defined types) ultimately succeeds.  Oops, I just gave away the ending. :)"
+        - presenter: chuck
+          title: Stirring the Hive With a Perl Stick
+          abstract: "Hive provides a SQL-like interface to Hadoop. Perl can interoperate with Hive in a variety of ways, including Hive queries through a Thrift API and the direct incorporation of Perl into map-reduce jobs. The author has taken a few baby steps on this journey and chooses to share the results with his peers."
+          links:
+            - name: slides
+              url : /presentations/perl-hive/
   - event_date: '2013/09/05'
     location: demand
     show_news: 0
