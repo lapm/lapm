@@ -63,9 +63,9 @@ location:
     name:    Open42
     url:     http://open42.com
   scale:
-    address: Scale10x - Hilton Los Angeles Airport - 5711 West Century Boulevard, 90045
+    address: Scale12x - Hilton Los Angeles Airport - 5711 West Century Boulevard, 90045
     mapurl: http://maps.google.com/maps?q=5711+West+Century+Boulevard,+Los+Angeles,+California,+USA+90045&hnear=5711+W+Century+Blvd,+Los+Angeles,+California+90045&gl=us&t=m&z=16&vpsrc=0
-    url:    https://www.socallinuxexpo.org/scale10x/events/bird-feather-sessions
+    url:    https://www.socallinuxexpo.org/scale12x/events/bird-feather
   steingarten:
     address: 10543 W. Pico Blvd, Los Angeles, CA 90064
     url: http://www.steingartenla.com/about/location/
@@ -210,6 +210,13 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2014/02/22'
+    location: scale
+    presentations:
+        - presenter: you
+          title: "Lightning talks!"
+          abstract: "5 minute talks on anything perl. Please sign up with Juan!"
+
   - event_date: '2014/01/22'
     location: demand
     show_news: 0
@@ -306,7 +313,7 @@ meetings:
     show_news: 1
     presentations:
       - presenter: you
-        title: Canceled!
+        title: Cancelled!
   - event_date: '2012/12/11'
     location: demand
     show_news: 1
