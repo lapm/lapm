@@ -9,9 +9,6 @@
     <author>
       <firstname>Chuck</firstname>
       <surname>Hardin</surname>
-      <affiliation>
-        <orgname>Nami Media</orgname>
-      </affiliation>
     </author>
   </artheader>
 
@@ -292,12 +289,12 @@
   <sect1>
     <title>Use Case:  Replacing An Existing Reporting System</title>
     <para>
-      I work for an advertising network.  Our business is to serve
-      ads.  Our clients, advertisers, would like to know which ads and
+      I worked for an advertising network.  Our business was to serve
+      ads.  Our clients, advertisers, wanted to know which ads and
       campaigns got queries, clicks and conversions, and how much they
       paid.</para>
     <para>
-      We start with web logs which record the details of the queries,
+      We started with web logs which record the details of the queries,
       clicks, and conversions.</para>
     <para>
       We digested these logs
@@ -367,26 +364,29 @@
       reports, since it didn't make sense to present such voluminous
       data in a web UI.</para>
     <para>
-      Our initial solution is therefore bifurcated: We still cube a
+      Our initial solution was therefore bifurcated: We still cubes a
       limited set of dimensions for UI presentation purposes, while
       sending full log files to Hadoop for scheduled reports.  A
       batched report doesn't need to have a sub-second response
       time.</para>
     <para>
-      This means we can actually expand the dimensions available in
-      our scheduled reports in future, since Hadoop gets the raw log
+      This meant we could actually expand the dimensions available in
+      our scheduled reports, since Hadoop gets the raw log
       files.</para>
     <para>
-      It also means we can perform free-form analytics on our log data
-      in future, using Hive as an exploratory tool.  Maybe we can ask
-      even better questions of our data in future, which could in turn
-      suggest better scheduled reports to present to our
+      It also meant we could perform free-form analytics on our log
+      data in future, using Hive as an exploratory tool.  Maybe we
+      could ask even better questions of our data in future, which
+      could in turn suggest better scheduled reports to present to our
       customers.</para>
     <para>
-      If our traffic volume increases to the point where even our
+      If our traffic volume increased to the point where even our
       cubed data with limited dimensions are taking too long to load,
-      we can go to a model where we update the UI-facing relational
-      tables from our Hive database.</para>
+      we could have gone to a model where we updated the UI-facing
+      relational tables from our Hive database.</para>
+    <para>
+      Too bad the company died and none of that happened.  But, uh, it
+      was a good idea.</para>
   </sect1>
 
   <sect1>
@@ -419,6 +419,47 @@
     <para>
       This is generally similar to Hadoop's overall incorporation of
       streaming, but this talk is about Perl and Hive, so FDSN.</para>
+  </sect1>
+
+  <sect1>
+    <title>Some General Tips For Using Hive</title>
+    <itemizedlist>
+      <listitem>
+	<para>
+          Hive and Hadoop work much better with small numbers of large
+          files than with large numbers of small files.</para>
+      </listitem>
+      <listitem>
+	<para>
+          Partitions are your friends.  If you frequently query data
+          along one specific partitioning scheme (by day, by hour, by
+          account, etc.), then load your data files into
+          subdirectories accordingly.  If your data volume justifies
+          the use of Hive at all, you'll be glad you did.</para>
+      </listitem>
+      <listitem>
+	<para>
+          Partitions are your friends.  If you frequently query data
+          along one specific partitioning scheme (by day, by hour, by
+          account, etc.), then load your data files into
+          subdirectories accordingly.  If your data volume justifies
+          the use of Hive at all, you'll be glad you did.</para>
+      </listitem>
+      <listitem>
+        <para>
+          If your systems are CPU-heavy, compress your files in HDFS.
+          If your systems are disk-heavy, don't.</para>
+      </listitem>
+      <listitem>
+        <para>
+          Try to avoid loading your data into HDFS directly from a
+          node that is functioning as a DataNode, itself.  Doing so
+          will result in the first replication block always being
+          stored on the local DataNode.  This will load that node
+          unevenly and cause a dramatic performance decrease, especially
+          if it is also your NameNode.</para>
+      </listitem>
+    </itemizedlist>
   </sect1>
 
   <sect1>

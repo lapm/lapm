@@ -69,6 +69,9 @@ location:
   steingarten:
     address: 10543 W. Pico Blvd, Los Angeles, CA 90064
     url: http://www.steingartenla.com/about/location/
+  ziprecruiter:
+    address: ZipRecruiter - 1453 3rd St Promenade, Ste 335, Santa Monica, CA 90401
+    url: http://ziprecruiter.com
 
 presenter:
   gabec:
@@ -106,7 +109,7 @@ presenter:
     name: Mon-Chaio Lo
   spazm:
     cpan: spazm
-    description: runs the Los Angeles Perl Mongers and serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike>Lead Engineer at Demand Media.
+    description: runs the Los Angeles Perl Mongers and serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike><strike>Lead Engineer at Demand Media</strike>Chief Ninjaneer for AirMedia.com
     name: Andrew Grangaard
     github: spazm
     url: http://lowlevelmanager.com
@@ -199,7 +202,7 @@ presenter:
     description: is the author of <a href="http://hop.perl.plover.com">Higher Order Perl</a>, a perl <a href="http://perl.plover.com/yak/tricks/">wizard</a>, and a frequent contributer to <a href="http://math.stackexchange.com/users/25554/mjd">Math Stackexchange</a>. We are lucky to have him as a special guest while he is visiting LA.
     url: http://blog.plover.com
   chuck:
-    name: Chuck Hardin, Nami Media
+    name: Chuck Hardin
     cpan: CHARDIN
     github: chardin
     url: http://www.naming-schemes.org/
@@ -210,6 +213,24 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2014/09/17'
+    location: ziprecruiter
+    show_news: 0
+    presentations:
+        - presenter: chuck
+          title: Stirring the Hive With a Perl Stick
+          abstract: "Hive provides a SQL-like interface to Hadoop. Perl can interoperate with Hive in a variety of ways, including Hive queries through a Thrift API and the direct incorporation of Perl into map-reduce jobs. The author has taken a few baby steps on this journey and chooses to share the results with his peers."
+          links:
+            - name: slides
+              url : /presentations/perl-hive/
+        - presenter: spazm
+          title: "Computer Science for the self-taugh hacker/engineer"
+          abstract: "What is <em>Computer Science</em> and how is it different from Programming? What did I miss by jumping straight into coding?  A quick tour of topics covered in introductory computer science courses discusses why those topics are considered important.<br>Reprise of my yapc.na 2014 talk."
+          links:
+            - name: pdf slides
+              url : https://dl.dropboxusercontent.com/u/15585350/presentations/yapc-cs-20140623.pdf
+            - name: yapc
+              url : http://www.yapcna.org/yn2014/talk/5377
   - event_date: '2014/02/22'
     location: scale
     presentations:
