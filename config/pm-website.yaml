@@ -70,7 +70,7 @@ location:
     address: 10543 W. Pico Blvd, Los Angeles, CA 90064
     url: http://www.steingartenla.com/about/location/
   ziprecruiter:
-    address: ZipRecruiter - 1453 3rd St Promenade, Ste 335, Santa Monica, CA 90401
+    address: ZipRecruiter - 1453 3rd St Promenade, Ste 390, Santa Monica, CA 90401
     url: http://ziprecruiter.com
 
 presenter:
@@ -224,7 +224,7 @@ meetings:
             - name: slides
               url : /presentations/perl-hive/
         - presenter: spazm
-          title: "Computer Science for the self-taugh hacker/engineer"
+          title: "Computer Science for the self-taught hacker/engineer"
           abstract: "What is <em>Computer Science</em> and how is it different from Programming? What did I miss by jumping straight into coding?  A quick tour of topics covered in introductory computer science courses discusses why those topics are considered important.<br>Reprise of my yapc.na 2014 talk."
           links:
             - name: pdf slides

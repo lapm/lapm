@@ -438,14 +438,6 @@
           the use of Hive at all, you'll be glad you did.</para>
       </listitem>
       <listitem>
-	<para>
-          Partitions are your friends.  If you frequently query data
-          along one specific partitioning scheme (by day, by hour, by
-          account, etc.), then load your data files into
-          subdirectories accordingly.  If your data volume justifies
-          the use of Hive at all, you'll be glad you did.</para>
-      </listitem>
-      <listitem>
         <para>
           If your systems are CPU-heavy, compress your files in HDFS.
           If your systems are disk-heavy, don't.</para>
