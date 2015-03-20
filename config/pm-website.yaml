@@ -23,7 +23,7 @@ location:
     name    : The Rubicon Project
     url     : http://rubiconproject.com
   mt:
-    address : Media Temple, 8520 National, Culver City, CA 90232.
+    address : Media Temple, 8536 National, Culver City, CA 90232.
     mapurl  : ""
     name    : Media Temple
     url     : http://mediatemple.com
@@ -72,8 +72,17 @@ location:
   ziprecruiter:
     address: ZipRecruiter - 1453 3rd St Promenade, Ste 390, Santa Monica, CA 90401
     url: http://ziprecruiter.com
+  zip401:
+    address: ZipRecruiter - 401 Wilshire, Santa Monica, CA
+    url: http://ziprecruiter.com
 
 presenter:
+  frioux:
+    name: fREW Schmidt
+    description: DBIC expert and Awesome dude.  Visiting from Dallas, Tx
+    github: frioux
+    cpan: frew
+    url: http://blog.afoolishmanifesto.com
   gabec:
     name: Gabe Costello
     description: is a Software Quality Assurance Engineer at MediaTemple.
@@ -207,12 +216,36 @@ presenter:
     github: chardin
     url: http://www.naming-schemes.org/
     description: 'Button-cute, rapier-keen, Texan-brown and pauper-poor is Chuck Hardin, whose awkward, burly figure is better known to the twilit half-world of five continents than to the employment agencies of Los Angeles, California. That he possesses the power to become invisible to finance companies; that his laboratory is tooled up to manufacture destructive robots he refers to as "Heavy Metal Apes" on a fantastic scale; and that he owns one of the rare mouths in which butter has never melted are legends treasured by every schoolboy.  <br> Shackled to the mighty wheel of Nami Media, Chuck spends his few hours outside of work raising turkeys which he occasionally displays on Thousand Oaks Boulevard, and stirs little from his alembics and retorts. Those who know hint that the light burning late in his laboratory may result in a breathtaking electric bill. Queried, he shrugs with the fatalism of your true Oriental. "Mektoub," he observes curtly. "It is written."'
+  cvega:
+    name: Casey Vega
+    github: cvega
+    linkedin: http://www.linkedin.com/in/caseyvega/
+    cpan: cvega
   you:
     description: are an awesome perler!
     name: You
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2015/03/23'
+    location: zip401
+    show_news: 0
+    presentations:
+        - presenter: frioux
+          title: miscellaneous debris
+          abstract: touches on docker, dev tools, dogma, DBIC, and more
+  - event_date: '2014/10/22'
+    location: mt
+    show_news: 0
+    presentations:
+        - presenter: cvega
+          title: Selenium testing with Perl examples
+        - presenter: theron
+          title: Computer Science and Math for the win!
+          abstract:  How I used some ideas from computer science and math (gasp!) in a long-term project I worked on for a linguistics professor, speeding up his Perl code considerably at each code iteration over the course of 4+ years.
+        - presenter: spazm
+          title: json fields in postgresql
+          abstract: postgresql 9.3 supports indexed, searchable json fields.  Can we ditch mongo?
   - event_date: '2014/09/17'
     location: ziprecruiter
     show_news: 0
