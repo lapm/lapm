@@ -118,7 +118,7 @@ presenter:
     name: Mon-Chaio Lo
   spazm:
     cpan: spazm
-    description: runs the Los Angeles Perl Mongers and serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike><strike>Lead Engineer at Demand Media</strike>Chief Ninjaneer for AirMedia.com
+    description: runs the Los Angeles Perl Mongers and serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike><strike>Lead Engineer at Demand Media</strike><strike>Chief Ninjaneer for AirMedia.com</strike> TBD
     name: Andrew Grangaard
     github: spazm
     url: http://lowlevelmanager.com
@@ -227,6 +227,22 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2015/08/04'
+    location: zip401
+    show_news: 0
+    presentations:
+        - presenter: spazm
+          title: Adventures in Failure!
+          abstract: How do different languages test and handle failure?
+          links:
+            - name: music
+              url : https://www.youtube.com/watch?v=AWwQsdHMT7Y
+        - presenter: you
+          title: yapc & oscon review
+          abstract: panel discussion of tips and tricks from YAPC.na and related.
+        - presenter: spazm
+          title: git archeology
+          abstract: "Learn to interogate your source code and you'll expect more from your commit messages.  Also: git rebase for the win"
   - event_date: '2015/03/23'
     location: zip401
     show_news: 0
