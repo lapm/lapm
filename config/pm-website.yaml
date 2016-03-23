@@ -131,7 +131,7 @@ presenter:
   tstanton:
     cpan: tstanton
     description: "Tommy's interests are: 1) Tappin' on the command-line, in a GNU/Linux setting; 2) Pickin' on the banjo, in a bluegrass setting"
-    #github: tstanton
+    github: tommystanton
     name: Tommy Stanton
     url: http://tommystanton.com
   xantus:
