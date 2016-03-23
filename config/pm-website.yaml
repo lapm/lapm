@@ -107,18 +107,19 @@ presenter:
   bluefeet:
     cpan: bluefeet
     github: bluefeet
-    description: 'ran the Thousand-oaks perl mongers, contributes to CPAN and now writes code for rent.com'
+    description: 'ran the Thousand-oaks perl mongers, contributes to CPAN and now writes code for ziprecruiter.com'
     name: Aran Deltac
     url: http://bluefeet.net
   kenny:
-    description: 'works at ValueClick, creating a new monitoring ubersystem.  In his spare time he has a number of ventures to help lift others up by their bootstraps. '
+    description: 'ZipRecruiter software billing expert.  Formerly worked at ValueClick, creating a new monitoring ubersystem.  In his spare time he has a number of ventures to help lift others up by their bootstraps. '
     name: Kenny Flegal
   mcl:
     description: is a software engineer and team lead at the Rubicon project.
     name: Mon-Chaio Lo
   spazm:
     cpan: spazm
-    description: runs the Los Angeles Perl Mongers and serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike><strike>Lead Engineer at Demand Media</strike><strike>Chief Ninjaneer for AirMedia.com</strike> TBD
+    description: runs the Los Angeles Perl Mongers and recently joined ZipRecruiter.com
+    olddesc: serves as <strike>Chief Ninjaneer for [undisclosed startup]</strike><strike>Lead Engineer at Demand Media</strike><strike>Chief Ninjaneer for AirMedia.com</strike> TBD
     name: Andrew Grangaard
     github: spazm
     url: http://lowlevelmanager.com
