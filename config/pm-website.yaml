@@ -228,6 +228,37 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2016/03/30'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: tstanton
+          title: Perl6 intro and demo
+          abstract: "Yeah, I think I'd be interested in demoing some Perl 6."
+        - presenter: spazm
+          title: Hands on Perl6 exercises
+          abstract: Bring your laptop, we'll get perl6 installed and work through some perl6 exercises on exercism.io.
+          links:
+            - name: getting started with perl6
+              url: https://perl6.org/getting-started/
+            - name: install perl6
+              url: https://perl6.org/downloads/
+            - name: exercism.io
+              url : http://exercism.io
+  - event_date: '2015/10/07'
+    location: zip401
+    show_news: 0
+    presentations:
+        - presenter: bluefeet
+          title: TBD
+          abstract: Aran talking about something before he skips town.
+        - presenter: mjd
+          title: Historical How and Why of Hash Tables
+          abstract: "Hash tables, dictionaries, and other associative data structures are so ubiquitous in modern programming languages that we can forget that at one time they were fresh and innovative. How did we live without them? Not too well, as I will describe.  <br> I will explain how hashes work in general and compare the implementations in the Perl and Python programming languages. I'll also discuss the non-hash implementation of similar language features in the earlier languages Lisp (1960ish) and SNOBOL (1965ish)."
+        - presenter: spazm
+          title: git archeology (alternate/contingency. time permitting)
+          abstract: "Learn to interogate your source code and you'll expect more from your commit messages.  Also: git rebase for the win"
+
   - event_date: '2015/08/04'
     location: zip401
     show_news: 0
@@ -422,7 +453,7 @@ meetings:
       - presenter: spazm
         title: github services
         abstract: leveraging github services for your (open source) project
-      - presenter: TBD
+      - presenter: max
         title: Notes from a Hackathon
         abstract: design lessons learned from a recent hackathon.
   - event_date: '2012/08/29'
