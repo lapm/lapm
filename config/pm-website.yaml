@@ -240,6 +240,20 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2016/09/27'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: you
+          title: TBD
+          abstract: THIS COULD BE YOU!
+  - event_date: '2016/06/01'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: you
+          title: EMERGENCY SOCIAL
+          abstract: Join us at the King's Head for chat -- no tech presentation.
   - event_date: '2016/04/20'
     location: zip401
     show_news: 1
