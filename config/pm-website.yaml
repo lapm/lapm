@@ -77,6 +77,18 @@ location:
     url: http://ziprecruiter.com
 
 presenter:
+  lembark:
+    name: Steven Lembark
+    description: >
+        is a Computer Consultant & Perl Hacker. He first tried
+        using Perl for a database project in the early 1990's. It actually
+        worked and he never stopped using Perl. Most of his consulting work
+        now is using Perl for database projects, ETL, and bioinformatics.
+        <p>
+        His Perl talks are avaiable at <a href=http://www.slideshare.net/lembark>slideshare</a> if anyone ever needs something in a hurry.
+    links:
+    cpan: lembark
+    slideshare: lembark
   frioux:
     name: fREW Schmidt
     description: DBIC expert and Awesome dude.  Visiting from Dallas, Tx
@@ -228,6 +240,19 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2016/04/20'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: lembark
+          title: Multiplying Ethiopians
+          abstract: Transforming a standard algorithm from perl5 to perl6.
+          links:
+            - name: slides
+              url: http://www.slideshare.net/lembark/ethiopian-multiplication-in-perl6
+        - presenter: you
+          title: TBD
+          abstract: THIS COULD BE YOU!
   - event_date: '2016/03/30'
     location: zip401
     show_news: 1
