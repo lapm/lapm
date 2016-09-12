@@ -70,9 +70,11 @@ location:
     address: 10543 W. Pico Blvd, Los Angeles, CA 90064
     url: http://www.steingartenla.com/about/location/
   ziprecruiter:
+    name: "ZipRecruiter"
     address: ZipRecruiter - 1453 3rd St Promenade, Ste 390, Santa Monica, CA 90401
     url: http://ziprecruiter.com
   zip401:
+    name: "ZipRecruiter"
     address: ZipRecruiter - 401 Wilshire, 11th floor, Santa Monica, CA 90401
     url: http://ziprecruiter.com
 

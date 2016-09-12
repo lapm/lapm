@@ -215,6 +215,24 @@ the A-level garage).
 </ul>
 
 [% END %]
+[% IF(l.name == 'ZipRecruiter')%]
+
+<h2>Venue Information</h2>
+<br> ZipRecruiter.com
+<br> 401 Wilshire.  11th floor
+<br> Santa Monica, CA 90401
+
+<P>
+<b>Notes:</b>
+<ul>
+    <li> The elevator may be unlocked, but most likely you'll have to wait in the lobby for an escort upstairs.
+
+    <li> Parking:
+<p>
+Park across the street in the Santa Monica public parking.  We will validate.  Do not park in the 401 Wilshire underground parking lot.
+</ul>
+
+[% END %]
 
 <h2>Mailing List</h2>
 
