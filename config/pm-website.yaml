@@ -249,6 +249,13 @@ presenter:
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2017/03/22'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: you
+          title: TBD
+          abstract: THIS COULD BE YOU!
   - event_date: '2016/12/06'
     location: texate
     show_news: 1
