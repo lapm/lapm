@@ -77,6 +77,10 @@ location:
     name: "ZipRecruiter"
     address: ZipRecruiter - 401 Wilshire, 11th floor, Santa Monica, CA 90401
     url: http://ziprecruiter.com
+  texate:
+    name: El Texate
+    address: El Texate - 316 Pico Blvd, Santa Monica, CA 90405
+    url: https://www.yelp.com/biz/el-texate-santa-monica
 
 presenter:
   lembark:
@@ -236,19 +240,55 @@ presenter:
     github: cvega
     linkedin: http://www.linkedin.com/in/caseyvega/
     cpan: cvega
+  markle:
+    name: Mark Hedges
+    cpan: markle
   you:
     description: are an awesome perler!
     name: You
     url: http://127.0.0.1
 
 meetings:
+  - event_date: '2016/12/06'
+    location: texate
+    show_news: 1
+    presentations:
+        - presenter: you
+          title: EMERGENCY SOCIAL
+          abstract: Join us for dinner/drinks/chat at El Texate -- no tech presentation.  Earlier than normal.  Walking distance from the Metro.
+  - event_date: '2016/10/26'
+    location: zip401
+    show_news: 1
+    presentations:
+        - presenter: bluefeet
+          title: Running a perl service under Nomad
+          abstract: Aran will be presenting a live demonstration of running a Perl service under Nomad.  Depending on time and preparation other aspects may be explored including service discovery, health checks, and Consul.
+          links:
+              - name: Nomad
+                url: https://www.nomadproject.io/intro/
+              - name: Consul
+                url: https://www.consul.io/
+        - presenter: markle
+          title: announcing Apache2::Controller
+          abstract: "something on Apache2::Controller, like how to build a quick REST interface, possibly also how to put together a Template Toolkit site.  It's really really fast.  Only slightly slower than writing a handler for each URL, but it's more organized, and the plugins are convenient."
+          links:
+              - name: Apache2::Controller
+                url: https://metacpan.org/pod/Apache2::Controller
   - event_date: '2016/09/27'
     location: zip401
     show_news: 1
     presentations:
-        - presenter: you
-          title: TBD
-          abstract: THIS COULD BE YOU!
+        - presenter: mjd
+          title: Perl Program Repair Shop and Red Flags
+          abstract: It's hard to write great code, but it doesn't have to be hard to write good code. 'Red flags' are easy-to-see signs that you have an easy opportunity to make your code better. I'll take some program or module written by someone else and show easy ways to make it smaller, faster, and easier to understand.
+          links:
+            - name: slides
+              url: http://perl.plover.com/flagbook/Flags-LAPM/
+            - name: manuscript
+              url: http://perl.plover.com/flagbook/manuscript/
+        - presenter: spazm
+          title: DDD Drive-by
+          abstract:   Tactical overview of Domain-Driven Design.  (Not to be confused with DDD: Document-driven development)
   - event_date: '2016/06/01'
     location: zip401
     show_news: 1
