@@ -1,0 +1,473 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
+]>
+
+<article>
+  <artheader>
+    <title>
+      Stirring the Hive with a Perl Stick
+    </title>
+    <author>
+      <firstname>Chuck</firstname>
+      <surname>Hardin</surname>
+    </author>
+  </artheader>
+
+  <sect1>
+    <title>Abstract</title>
+      <para>
+        Hive provides a SQL-like interface to Hadoop.  Perl can
+        interoperate with Hive in a variety of ways, including Hive
+        queries through a Thrift API and the direct incorporation of
+        Perl into map-reduce jobs.  The author has taken a few baby
+        steps on this journey and chooses to share the results with
+        his peers.</para>
+  </sect1>
+
+  <sect1>
+    <title>Brief Overview of Hadoop and Hive</title>
+    <variablelist>
+      <varlistentry>
+        <term>Hadoop</term>
+          <listitem>
+            <para>
+	      An Apache open source software framework which makes
+	      extensive use of map-reduce.  It can distribute data
+	      storage, retrieval, and processing over a cluster of
+	      computers.</para>
+            <para>
+	      Hadoop has some useful properties:
+              <itemizedlist>
+		<listitem>
+		  <para>
+		    It is horizontally scalable.  If you want to add
+		    more storage or more processing power, you buy
+		    more machines and add them as nodes to the
+		    cluster.  Horizontal scaling has a linear cost
+		    profile for growth.  Vertical scaling (buying more
+		    expensive servers and storage) has an exponential
+		    cost profile.</para>
+		</listitem>
+		<listitem>
+		  <para>
+		    It has provisions for hardware fault tolerance,
+		    especially redundant storage, automatic fault
+		    detection, and ease of removing and adding nodes
+		    in a cluster.  This means you can use cheap,
+		    relatively unreliable hardware for your nodes
+		    without compromising the availability or
+		    reliability of the cluster.</para>
+		</listitem>
+		<listitem>
+		  <para>
+		    It is open source, and available for free from a
+		    number of sources.  Some of those sources also
+		    sell commercial support for a particular
+		    distribution of the product.</para>
+		</listitem>
+	      </itemizedlist>
+	    </para>
+            <para>
+	      You can read more about Hadoop
+	      at <ulink url='http://hadoop.apache.org/'>hadoop.apache.org</ulink>,
+	      and download a release to try for yourself.</para>
+          </listitem>
+        </varlistentry>
+      <varlistentry>
+        <term>Hive</term>
+          <listitem>
+            <para>
+	      A query infrastructure built on top of a Hadoop data
+	      store which supports a SQL-like syntax for retrieving
+	      and analyzing its contents.  Hive was originally
+	      developed by Facebook, but is now maintained by Apache.
+	      Amazon maintains its own fork of Hive which is available
+	      on its Web Services frameworks.
+            </para>
+	    <para>
+	      You can read more about Hive
+	      at <ulink url='http://hive.apache.org/'>hive.apache.org</ulink>,
+	      and download a release to try for yourself.</para>
+          </listitem>
+        </varlistentry>
+    </variablelist>
+  </sect1>
+
+  <sect1>
+    <title>Why Use Hadoop And Hive?</title>
+    <para>
+      You should consider using Hadoop if:</para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  You are dealing with large amounts of data per day (terabytes and up).</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Other tools (relational databases, key-value stores) are not
+	  able to keep up with your storage or processing requirements.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  You've already scaled up your server hardware to the point
+	  where buying the next bigger server is very expensive
+	  compared with buying a lot of cheap servers.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Other tools for horizontal scaling are too expensive,
+	  inconvenient, or don't address important aspects of your
+	  problem as well as Hadoop does.</para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      You should consider using Hive if:</para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  You don't want to write map-reduce jobs in Java.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Your data analysis needs map neatly to SQL-like queries on
+	  your source data.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  You want to support exploratory queries performed by people
+	  who know more about data analysis than about writing
+	  map-reduce code.</para>
+      </listitem>
+    </itemizedlist>
+
+  </sect1>
+
+  <sect1>
+    <title>"SQL-Like": Benefits And Drawbacks</title>
+    <para>
+      <ulink url='https://cwiki.apache.org/confluence/display/Hive/LanguageManual'>HiveQL</ulink>'s
+      similarity to SQL is both a benefit and a hazard.</para>
+    <para>
+      On the one hand, HiveQL supports a lot of familiar
+      operations: <command>SELECT</command>, <command>GROUP
+      BY</command>, <command>LIMIT</command>, <command>UNION</command>,
+      some support for subqueries.</para>
+    <para>On the other hand...or plethora of hands...</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+	  Hive can replace the contents of a table wholesale
+	  with <command>INSERT OVERWRITE TABLE</command>, but cannot
+	  selectively <command>UPDATE</command>, <command>INSERT</command>,
+	  or <command>DELETE</command> its contents.</para>
+	<para>
+	  Hive is best understood as a layer over an HDFS data store
+	  and a way to query its contents, not as random write access
+	  to that storage mechanism.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Hive also doesn't have transactions.  Again, it's not a
+	  random write access data storage layer.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Only one table or view is supported in
+	  a <command>FROM</command> clause.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Subqueries are only allowed in a <command>WHERE</command>
+	  clause.  Correlated subqueries are right out.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Hive does not support materialized views.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Not all SQL-92 data types and functions are
+	  supported.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  There's no expectation of sub-second latency in Hive
+	  queries.  Some queries could take minutes or hours.  Almost
+	  none will be shorter than several seconds.</para>
+      </listitem>
+      <listitem>
+	<para>There are more.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      If you keep these distinctions in mind, you'll be fine.
+      Otherwise, you may spend some time being confused.</para>
+  </sect1>
+
+  <sect1>
+    <title>Hive Server Versus Hive Server 2</title>
+    <para>
+      <emphasis>Summary</emphasis>:  Use Hive Server 2.</para>
+    <itemizedlist>
+      <listitem>
+        <para>
+	  Supports ODBC via a driver on the Hive 2 server.</para>
+      </listitem>
+      <listitem>
+        <para>
+	  Supports concurrency in both ODBC and Thrift
+	  connections.</para>
+      </listitem>
+      <listitem>
+        <para>
+	  Better support for authentication and authorization.</para>
+      </listitem>
+      <listitem>
+        <para>
+	  Better unified support for auditing and logging.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Hive Server has memory leaks that may not be fixable.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      The analysis above is taken
+      from <ulink url='http://www.slideshare.net/cwsteinbach/hiveserver2-for-apache-hive'>Carl
+      Steinbach's slide presentation on the subject</ulink>.</para>
+  </sect1>
+
+  <sect1>
+    <title>Sending Queries To Hive From Perl Via Thrift</title>
+    <para>
+      It's good that Hive Server 2 supports ODBC, but it does so by
+      sending ODBC requests to the Thrift interface.  I decided to cut
+      out the middleman and the complexity.  YMMV.</para>
+    <para>
+      The school solution for doing this in Perl is the CPAN
+      module <ulink url='https://metacpan.org/pod/Thrift::API::HiveClient2'>Thrift::API::HiveClient2</ulink>.</para>
+    <para>
+      A simple piece of sample code:
+
+      <programlisting>
+    my $client = Thrift::API::HiveClient2->new
+        ( host     => $host,
+          port     => $port,
+          timeout  => $timeout,
+          username => $username,
+          password => $password,
+    );
+
+    $client->connect or die "Could not connect";
+
+    my $rh = $client->execute($query); # will die with an error if it fails
+
+    my $return = [];
+    while (my $latest_return = $client->fetch($rh)) { # will die with an error if it fails
+        push @$return, @$latest_return;
+    }
+
+    </programlisting></para>
+  </sect1>      
+
+  <sect1>
+    <title>Building HiveQL Queries: A Brief Note</title>
+    <para>
+      There is no <classname>HiveQL::Abstract</classname>, and
+      HiveQL's differences from SQL make it untenable to
+      use <classname>SQL::Abstract</classname> for this
+      purpose.</para>
+    <para>
+      I'm not a huge fan of <classname>SQL::Abstract</classname>
+      myself, but if you are, perhaps there is an opportunity here for
+      an enterprising prospective contributor.</para>
+    <para>
+      I'm just using here-docs and data structures.  Sue me.</para>
+  </sect1>
+
+  <sect1>
+    <title>Use Case:  Replacing An Existing Reporting System</title>
+    <para>
+      I worked for an advertising network.  Our business was to serve
+      ads.  Our clients, advertisers, wanted to know which ads and
+      campaigns got queries, clicks and conversions, and how much they
+      paid.</para>
+    <para>
+      We started with web logs which record the details of the queries,
+      clicks, and conversions.</para>
+    <para>
+      We digested these logs
+      into <ulink url='http://search.cpan.org/~davegmx/DataCube/lib/DataCube.pm'>DataCube</ulink>
+      objects, which are
+      in-memory <ulink url='http://en.wikipedia.org/wiki/OLAP_cube'>OLAP
+      cubes</ulink>.  An OLAP cube contains a specified set of
+      hierarchical dimensions and a specified set of cumulative
+      measures (in our case, impressions, clicks, conversions,
+      revenue, etc.).</para>
+    <para>
+      Each OLAP cube we generated contained a set of dimensions and
+      the rolled-up metrics for those dimensions.  Each of these cubes
+      was mapped to an autogenerated relational table with fields
+      corresponding to those dimensions and metrics.</para>
+    <para>
+      For each row of data in the cube, we'd check the contents of the
+      relational table to see if there was an existing row for that
+      date and the specified values for those dimensions.  If there
+      was, we'd update the totals for the measures.  If there wasn't,
+      we'd insert a new row.</para>
+    <para>
+      The UI presented the contents of the relational tables to the user.</para>
+    <para>
+      This approach was reasonable but had issues:</para>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  The update/insert operations were expensive, even when
+	  optimized.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  There was a perpetual battle between dimensional richness and
+	  cube load times.  We always had to digest away some
+	  information.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Business stakeholders began to ask for more dimensions for
+	  use in their analytics, which increased the cube load times
+	  further.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  As traffic volume increased, we began to require more than
+	  60 minutes to process an hour's worth of data.  That's
+	  obviously unsustainable, and led to decreases in dimensional
+	  richness and consequent stakeholder disappointment.</para>
+      </listitem>
+      <listitem>
+	<para>
+	  We could have stored raw log data in relational tables and
+	  implemented horizontal storage scaling via Greenplum or a
+	  similar solution, but they're all very expensive.</para>
+      </listitem>
+    </itemizedlist>
+    <para>
+      Eventually, we ran out of clever ways to improve the code.  We
+      needed a new approach.</para>
+  </sect1>
+
+  <sect1>
+    <title>So How Can Hive Help?</title>
+    <para>
+      The most dimensionally rich reports were generally scheduled
+      reports, since it didn't make sense to present such voluminous
+      data in a web UI.</para>
+    <para>
+      Our initial solution was therefore bifurcated: We still cubes a
+      limited set of dimensions for UI presentation purposes, while
+      sending full log files to Hadoop for scheduled reports.  A
+      batched report doesn't need to have a sub-second response
+      time.</para>
+    <para>
+      This meant we could actually expand the dimensions available in
+      our scheduled reports, since Hadoop gets the raw log
+      files.</para>
+    <para>
+      It also meant we could perform free-form analytics on our log
+      data in future, using Hive as an exploratory tool.  Maybe we
+      could ask even better questions of our data in future, which
+      could in turn suggest better scheduled reports to present to our
+      customers.</para>
+    <para>
+      If our traffic volume increased to the point where even our
+      cubed data with limited dimensions are taking too long to load,
+      we could have gone to a model where we updated the UI-facing
+      relational tables from our Hive database.</para>
+    <para>
+      Too bad the company died and none of that happened.  But, uh, it
+      was a good idea.</para>
+  </sect1>
+
+  <sect1>
+    <title>How Else Can Perl Help Hive?</title>
+    <para>
+      Remember that Hadoop can store data as text files.  (It often
+      will, if you're sending it web log files.)  Perl is good at
+      manipulating those.  Hive has hooks to stream data through a
+      program in order to preprocess it.</para>
+    <programlisting>
+    ADD FILE ${env:HOME}/lib/Utils/Hive.pm;
+    ADD FILE ${env:HOME}/bin/file.pl;
+
+    SELECT
+        TRANSFORM (infield1, infield2, ...)
+        USING "file.pl"
+        AS (outfield1, outfield2, ...)
+    FROM table1;
+    </programlisting>
+    <para>
+      The input and output row lists may be of different lengths.  The
+      schemas need not be the same in any way.</para>
+    <para>
+      This allows you to extend Hive's fairly limited set of built-in
+      functions using a language you know and love, or even other,
+      less lovely languages.</para>
+    <para>
+      We haven't used this capability at Nami yet, but we may in
+      future.</para>
+    <para>
+      This is generally similar to Hadoop's overall incorporation of
+      streaming, but this talk is about Perl and Hive, so FDSN.</para>
+  </sect1>
+
+  <sect1>
+    <title>Some General Tips For Using Hive</title>
+    <itemizedlist>
+      <listitem>
+	<para>
+          Hive and Hadoop work much better with small numbers of large
+          files than with large numbers of small files.</para>
+      </listitem>
+      <listitem>
+	<para>
+          Partitions are your friends.  If you frequently query data
+          along one specific partitioning scheme (by day, by hour, by
+          account, etc.), then load your data files into
+          subdirectories accordingly.  If your data volume justifies
+          the use of Hive at all, you'll be glad you did.</para>
+      </listitem>
+      <listitem>
+        <para>
+          If your systems are CPU-heavy, compress your files in HDFS.
+          If your systems are disk-heavy, don't.</para>
+      </listitem>
+      <listitem>
+        <para>
+          Try to avoid loading your data into HDFS directly from a
+          node that is functioning as a DataNode, itself.  Doing so
+          will result in the first replication block always being
+          stored on the local DataNode.  This will load that node
+          unevenly and cause a dramatic performance decrease, especially
+          if it is also your NameNode.</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+  <sect1>
+    <title>Other Resources</title>
+    <itemizedlist>
+      <listitem>
+	<para>
+	  <ulink url='http://www.youtube.com/watch?v=TJbCZm-RkJE'>Jud
+	    Dagnall's YAPC:NA 2013 talk on Perl, Hive, and Pig</ulink></para>
+      </listitem>
+      <listitem>
+	<para>
+	  <ulink url='http://shop.oreilly.com/product/0636920023555.do'>Programming
+	  Hive</ulink>, the O'Reilly Manual</para>
+      </listitem>
+    </itemizedlist>
+  </sect1>
+
+ </article>
